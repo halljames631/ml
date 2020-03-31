@@ -14,8 +14,19 @@ class Polygon:
         for i in range(self.sides):
             turtle.forward(self.size)
             turtle.right(180 - self.angle)
-        turtle.done()
+      
 
+class Square(Polygon):
+    def __init__(self, size, color="black"):
+        super().__init__(4, "square", size, color)
 
-stop = Polygon(size=50, sides=8, name='stop sign', color='red')
-stop.draw()
+    def draw(self):
+        turtle.begin_fill()
+        super().draw()
+        turtle.end_fill()
+
+square = Square(size=100)
+
+square.draw()
+
+turtle.done()
